@@ -9,7 +9,7 @@ async function randomImg() {
     return data.urls.small;
 }
 
-export default function HomeScreen() {
+export default function HomeScreen({navigation}) {
     const [newImg1, setNewImg1] = useState(null);
     const [newImg2, setNewImg2] = useState(null);
     const [newImg3, setNewImg3] = useState(null);
@@ -98,7 +98,11 @@ export default function HomeScreen() {
         return(
             <View style={styles.container}>
                 <Text h1 style={styles.heading1}>Loading...</Text>
-                <ActivityIndicator/>
+                <Button
+                    title="Search Photos"
+                    onPress={() => navigation.navigate("Search")}
+                />
+                <ActivityIndicator size="large" />
             </View>
         )
     }
@@ -191,6 +195,7 @@ export default function HomeScreen() {
                 <Text h1 style={styles.heading1}>Premium Royalty Free Images</Text>
                 <Button
                     title="Search Photos"
+                    onPress={() => navigation.navigate("Search")}
                 />
             </View>
         </View>
